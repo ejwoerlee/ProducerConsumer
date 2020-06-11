@@ -21,7 +21,7 @@ namespace ProducerConsumer
                     string opdr = $"print opdracht: {i}";
                     await barCodeBO.PrintAsync("10.229.5.12", opdr);
                 }
-                Console.WriteLine("Alle print opdrachten voor printer 10.229.5.12 verstuurd.");
+                Console.WriteLine("-- Alle print opdrachten voor printer 10.229.5.12 verstuurd.");
             });
 
             // printer 2 => 10.115.40.1
@@ -32,7 +32,7 @@ namespace ProducerConsumer
                     string opdr = $"print opdracht: {i}";
                     await barCodeBO.PrintAsync("10.115.40.1", opdr);
                 }
-                Console.WriteLine("Alle print opdrachten voor printer 10.115.40.1 verstuurd.");
+                Console.WriteLine("-- Alle print opdrachten voor printer 10.115.40.1 verstuurd.");
 
             });
                      
