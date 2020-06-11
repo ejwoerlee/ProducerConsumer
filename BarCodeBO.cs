@@ -17,20 +17,22 @@ namespace ProducerConsumer
         {
         }
 
-        public void Print(string ipaddress, string zpl)
+        public async Task PrintAsync(string ipaddress, string zpl)
         {
             try
             {
+                //bool itemFound = barCodePrintHandlers.ContainsKey(ipaddress);
+                //Console.WriteLine(itemFound ? $"{ipaddress} gevonden" : $"{ipaddress} niet gevonden");
+
                 BarCodePrinterHandler barCodePrinterHandler =
-                        barCodePrintHandlers.GetOrAdd(ipaddress, new BarCodePrinterHandler(ipaddress));
+                        barCodePrintHandlers.GetOrAdd(ipaddress, _ => new BarCodePrinterHandler(ipaddress));
+                
+                await barCodePrinterHandler.ProducePrintOpdracht(zpl);
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-
         }
 
     }
